@@ -1,16 +1,14 @@
-{% load static %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'bootstrap.min.css' %}"
-/>
+
+<!-- base.html 템플릿 사용 -->
+{% extends 'base.html' %} 
+{% block content%}
 <div class="container my-3">
   <table class="table">
     <thead>
       <tr class="table-dark">
         <th>번호</th>
         <th>제목</th>
-        <th>작성일시ㅣ</th>
+        <th>작성일시</th>
       </tr>
     </thead>
     <tbody>
@@ -31,8 +29,9 @@
       {% endif %}
     </tbody>
   </table>
+  <a href="{% url 'pybo:question_create' %}" class="btn btn-primary">질문 등록하기</a>
 </div>
-{% comment %} {% if question_list %}
+{% endblock %} {% comment %} {% if question_list %}
 <ul>
   {% for question in question_list %}
   <li>
